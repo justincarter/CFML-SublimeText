@@ -1,0 +1,40 @@
+[
+	// cf tags
+	//
+
+	// cfabort
+	{ "keys": ["ctrl+shift+a"], "command": "insert_snippet", "args": {"contents": "<cfabort>" } },
+	// cfdump
+	{ "keys": ["ctrl+shift+d"], "command": "insert_snippet", "args": {"contents": "<cfdump var=\"#${0:$SELECTION}#\">" } },
+	// cfoutput
+	{ "keys": ["ctrl+shift+o"], "command": "insert_snippet", "args": {"contents": "<cfoutput>${0:$SELECTION}</cfoutput>" } },
+	// super dump
+	{ "keys": ["ctrl+alt+shift+d"], "command": "insert_snippet", "args": {"contents": "<cfoutput><cfdump var=\"#${0:$SELECTION}#\"></cfoutput><cfabort>" } },
+
+
+	// wrappers
+	//
+
+	// hash
+	{ "keys": ["ctrl+shift+h"], "command": "insert_snippet", "args": {"contents": "#${0:$SELECTION}#" } },
+	// single line comment
+	{ "keys": ["ctrl+shift+m"], "command": "insert_snippet", "args": {"contents": "<!--- ${0:$SELECTION} --->" }, "context": 
+		[
+			{ "key": "text", "operator": "not_regex_contains", "operand": "\n" }
+		]
+	},
+	// multi line comment
+	{ "keys": ["ctrl+shift+m"], "command": "insert_snippet", "args": {"contents": "<!--- \n${0:$SELECTION} --->\n" }, "context": 
+		[
+			{ "key": "text", "operator": "regex_contains", "operand": "\n" }
+		]
+	},
+
+
+	// remap sublime text defaults
+	//
+
+	{ "keys": ["ctrl+alt+d"], "command": "duplicate_line" },
+	{ "keys": ["ctrl+alt+m"], "command": "expand_selection", "args": {"to": "brackets"} }
+
+]
